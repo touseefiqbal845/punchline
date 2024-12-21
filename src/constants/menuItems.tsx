@@ -5,6 +5,7 @@ import { SlMagnifier } from "react-icons/sl";
 import { FaPauseCircle } from 'react-icons/fa';
 
 import Icon from '@/molecules/Icon';
+//@ts-ignore
 import { itemRenderer } from "@/components/SideBar/SideMenu";
 
 export const SidemenuItems = ( ishidden: boolean) => [
