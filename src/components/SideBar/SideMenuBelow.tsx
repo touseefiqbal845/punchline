@@ -90,8 +90,8 @@ const SideMenuBelow: React.FC<Props> = ({ ishidden = false, mode = "light" }) =>
         className="w-full p-panel-menu-custom md:w-20rem"
       />
       {/* Modal Component that triggers when 'isModalVisible' is true */}
-      <Modal isVisible={isModalVisible} onClose={handleModalClose}>
-        <CreateCollectionPrime />
+        <Modal isVisible={isModalVisible} onClose={handleModalClose}>
+        <CreateCollectionPrime onClose={handleModalClose}/>
       </Modal>
     </div>
   );
