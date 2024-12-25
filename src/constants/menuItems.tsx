@@ -4,10 +4,8 @@ import { HiMiniHome } from "react-icons/hi2";
 import { SlMagnifier } from "react-icons/sl";
 import { FaPauseCircle } from 'react-icons/fa';
 import Icon from '@/molecules/Icon';
-
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { MdOutlineSettings } from "react-icons/md";
-import Icon from "@/molecules/Icon";
 import { itemRenderer } from "@/components/SideBar/SideMenu";
 
 export const SidemenuItems = (ishidden: boolean) => [
@@ -17,6 +15,7 @@ export const SidemenuItems = (ishidden: boolean) => [
     href: "/dashboard",
     group: false,
     template: (item: any, options: any) =>
+      //@ts-ignore
       itemRenderer(item, options, ishidden),
   },
   {
@@ -25,6 +24,7 @@ export const SidemenuItems = (ishidden: boolean) => [
     group: true,
     href: "/explore",
     template: (item: any, options: any) =>
+      //@ts-ignore
       itemRenderer(item, options, ishidden),
     items: [
       {
@@ -32,6 +32,7 @@ export const SidemenuItems = (ishidden: boolean) => [
         group: false,
         href: "/",
         template: (item: any, options: any) =>
+      //@ts-ignore
           itemRenderer(item, options, ishidden),
       },
       {
@@ -39,6 +40,7 @@ export const SidemenuItems = (ishidden: boolean) => [
         group: false,
         href: "/",
         template: (item: any, options: any) =>
+      //@ts-ignore
           itemRenderer(item, options, ishidden),
       },
       {
@@ -46,6 +48,7 @@ export const SidemenuItems = (ishidden: boolean) => [
         href: "/",
         group: false,
         template: (item: any, options: any) =>
+      //@ts-ignore
           itemRenderer(item, options, ishidden),
       },
       {
@@ -53,6 +56,7 @@ export const SidemenuItems = (ishidden: boolean) => [
         href: "/",
         group: false,
         template: (item: any, options: any) =>
+      //@ts-ignore
           itemRenderer(item, options, ishidden),
       },
     ],
@@ -63,6 +67,7 @@ export const SidemenuItems = (ishidden: boolean) => [
     icon: <Icon icon="collections" size={16} />,
     group: true,
     template: (item: any, options: any) =>
+      //@ts-ignore
       itemRenderer(item, options, ishidden),
     items: [
       {
@@ -70,6 +75,7 @@ export const SidemenuItems = (ishidden: boolean) => [
         href: "/",
         group: false,
         template: (item: any, options: any) =>
+          //@ts-ignore
           itemRenderer(item, options, ishidden),
       },
       {
@@ -77,6 +83,7 @@ export const SidemenuItems = (ishidden: boolean) => [
         href: "/",
         group: false,
         template: (item: any, options: any) =>
+          //@ts-ignore
           itemRenderer(item, options, ishidden),
       },
     ],
@@ -87,6 +94,7 @@ export const SidemenuItems = (ishidden: boolean) => [
     icon: <Icon icon="bookmarks" size={16} />,
     group: false,
     template: (item: any, options: any) =>
+      //@ts-ignore
       itemRenderer(item, options, ishidden),
   },
   {
@@ -95,6 +103,7 @@ export const SidemenuItems = (ishidden: boolean) => [
     icon: <Icon icon="playlist" size={16} />,
     group: false,
     template: (item: any, options: any) =>
+      //@ts-ignore
       itemRenderer(item, options, ishidden),
   },
   {
@@ -103,6 +112,7 @@ export const SidemenuItems = (ishidden: boolean) => [
     icon: <Icon icon="library" size={16} />,
     group: false,
     template: (item: any, options: any) =>
+      //@ts-ignore
       itemRenderer(item, options, ishidden),
   },
 
@@ -122,6 +132,7 @@ export const SidemenuItemsBelow = (ishidden: boolean) => [
     icon: <FaPauseCircle size={16} />,
     group: false,
     template: (item: any, options: any) =>
+      //@ts-ignore
       itemRenderer(item, options, ishidden),
   },
   {
@@ -131,6 +142,7 @@ export const SidemenuItemsBelow = (ishidden: boolean) => [
 
     group: false,
     template: (item: any, options: any) =>
+      //@ts-ignore
       itemRenderer(item, options, ishidden),
   },
   {
@@ -139,6 +151,7 @@ export const SidemenuItemsBelow = (ishidden: boolean) => [
     icon: <MdOutlineSettings style={{ fontSize: "16px" }}/>,
     group: false,
     template: (item: any, options: any) =>
+      //@ts-ignore
       itemRenderer(item, options, ishidden),
   },
 ];
