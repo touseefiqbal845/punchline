@@ -28,7 +28,7 @@ export default function Layout({
             <Header />
             <div className="flex-1 overflow-y-auto overflow-x-hidden">
               {/* <div className="px-4 py-2 lg:px-40 lg:py-20 bg-[#F8FCFF]"> */}
-              <div className="px-4 py-2 lg:px-40 lg:py-20">
+              <div className="px-4 py-2 lg:px-40 lg:py-20 bg-[#F8FCFF]">
               {children}
             </div>
           </div>

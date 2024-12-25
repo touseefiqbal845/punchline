@@ -16,7 +16,7 @@ interface Props {
 }
 
 // Item Renderer for the side menu
-const itemRenderer = (
+ export const itemRenderer = (
   item: any,
   options: any,
   ishidden: boolean,
@@ -24,14 +24,25 @@ const itemRenderer = (
 ) => {
   const router = useRouter();
 
+
+  console.log("items",item )
+  console.log("options",options )
+
+
   const handleClick = (e: React.MouseEvent) => {
     if (!item.items) {
       e.preventDefault();
-      router.push(item.href);
-    } else {
+      if (item.href) {
+        router.push(item.href);
+      } else {
+        console.warn("No href provided.");
+      }
+    } else if (options && typeof options.onClick === "function") {
       options.onClick(e);
     }
   };
+  
+
 
   return (
     <div onClick={handleClick}>
@@ -89,9 +100,8 @@ const SideMenu: React.FC<Props> = ({ ishidden = false, mode = "light" }) => {
         model={updatedMenuItems}
         className="w-full p-panel-menu-custom md:w-20rem"
       />
-      {/* Modal Component that triggers when 'isModalVisible' is true */}
       <Modal isVisible={isModalVisible} onClose={handleModalClose}>
-        <CreateCollectionPrime />
+        <CreateCollectionPrime onClose={handleModalClose}/>
       </Modal>
     </div>
   );

@@ -3,51 +3,79 @@ import { InputText } from "primereact/inputtext";
 import { InputTextarea } from "primereact/inputtextarea";
 import { Dropdown } from "primereact/dropdown";
 import { Button } from "primereact/button";
+import EmojiPicker from "emoji-picker-react";
 
-const CreateCollectionPrime = () => {
+const CreateCollectionPrime = ({ onClose }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [privacy, setPrivacy] = useState("Shareable");
+  const [privacy, setPrivacy] = useState(null);
+  const [emoji, setEmoji] = useState(null);
+  const [isEmojiPickerVisible, setIsEmojiPickerVisible] = useState(false);
 
   const privacyOptions = [
-    { label: "Shareable", value: "Shareable" },
-    { label: "Private", value: "Private" },
+    { label: "🔗 Shareable", value: "Shareable" },
+    { label: "🔒 Private ", value: "Private" },
   ];
+
+  const handleEmojiSelect = (emojiObject: any) => {
+    setEmoji(emojiObject.emoji);
+    setIsEmojiPickerVisible(false);
+  };
+
+  const isFormValid = title && privacy && emoji;
 
   return (
     <div className="max-w-full mx-auto bg-white rounded-lg">
-      {/* Header with Title and Emoji */}
       <div className="flex items-center justify-between mb-6 pb-5 border-b">
-        <div>
-          <h2 className="text-3xl font-semibold text-gray-800">
-            Create Collection
-          </h2>
-        </div>
-        <div>
-            <span className="text-gray-400 text-xl">X</span>
-        </div>
+        <h2 className="text-3xl font-normal text-gray-800">Edit Collection</h2>
+        <span
+          className="text-gray-400 text-xl cursor-pointer"
+          onClick={onClose}
+        >
+          ✕
+        </span>
       </div>
 
-      {/* Title Input */}
       <div className="mb-4">
         <label className="block text-lg font-medium text-gray-700 mb-2">
           Title
         </label>
-        <div className="flex gap-4">
+        <div className="flex gap-4 items-center">
           <InputText
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="Collection Name.."
+            placeholder="Collection Name..."
             className="w-full p-2 border bg-[#f3f4f6] border-gray-300 rounded-[50px]"
           />
-          <span className="text-4xl text-yellow-500">😊</span>
+          {emoji ? (
+            <div className="relative flex items-center">
+              <span className="text-4xl">{emoji}</span>
+              <span
+                className="absolute top-0 right-0 text-red-500 cursor-pointer"
+                onClick={() => setEmoji(null)}
+              >
+                ✕
+              </span>
+            </div>
+          ) : (
+            <button
+              onClick={() => setIsEmojiPickerVisible(!isEmojiPickerVisible)}
+              className="text-blue-500 underline"
+            >
+              Add Emoji
+            </button>
+          )}
         </div>
+        {isEmojiPickerVisible && (
+          <div className="absolute z-10 mt-2 ">
+            <EmojiPicker onEmojiClick={handleEmojiSelect} />
+          </div>
+        )}
       </div>
 
-      {/* Description Input */}
       <div className="mb-4">
         <label className="block text-lg font-medium text-gray-700 mb-2">
-          Description
+          Description (optional)
         </label>
         <InputTextarea
           value={description}
@@ -58,7 +86,6 @@ const CreateCollectionPrime = () => {
         />
       </div>
 
-      {/* Privacy Dropdown */}
       <div className="mb-4">
         <label className="block text-lg font-medium text-gray-700 mb-2">
           Privacy
@@ -69,15 +96,16 @@ const CreateCollectionPrime = () => {
           onChange={(e) => setPrivacy(e.value)}
           optionLabel="label"
           className="w-full border border-gray-300 rounded-md"
+          placeholder="Select Privacy"
         />
       </div>
 
-      {/* Update Button */}
       <div className="flex justify-end">
         <Button
           label="Update"
           onClick={() => alert("Collection Updated")}
           className="p-button-primary px-6 py-3 bg-blue-500 text-white"
+          disabled={!isFormValid}
         />
       </div>
     </div>
