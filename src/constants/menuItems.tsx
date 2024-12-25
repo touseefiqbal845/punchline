@@ -4,7 +4,7 @@ import { HiMiniHome } from "react-icons/hi2";
 import { SlMagnifier } from "react-icons/sl";
 import { FaPauseCircle } from 'react-icons/fa';
 import Icon from '@/molecules/Icon';
-import { FaPauseCircle } from "react-icons/fa";
+
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { MdOutlineSettings } from "react-icons/md";
 import Icon from "@/molecules/Icon";
