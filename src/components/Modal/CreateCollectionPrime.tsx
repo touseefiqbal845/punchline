@@ -5,7 +5,11 @@ import { Dropdown } from "primereact/dropdown";
 import { Button } from "primereact/button";
 import EmojiPicker from "emoji-picker-react";
 
-const CreateCollectionPrime = ({ onClose }) => {
+interface CreateCollectionPrimeProps {
+  onClose: () => void;
+}
+
+const CreateCollectionPrime: React.FC<CreateCollectionPrimeProps> = ({ onClose }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [privacy, setPrivacy] = useState(null);
